@@ -24,7 +24,7 @@ while keep_asking:
         crypto = av_crypto[option - 1]
         keep_asking = 0
 # end ask
-print("\n..leyendo datos de la api..\n")
+print("\nLeyendo datos de la api..\n")
 # leo la api para crypto
 crypto_exchange_rate = api.get_exchange_rate(av_url[crypto])
 ars = api.get_exchange_rate(av_url["ARS"])
