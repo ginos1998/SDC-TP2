@@ -10,7 +10,7 @@ av_url = {"BTC": 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_R
           "ARS": 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=ARS&apikey=9N3E66AEYSMKXXHT',
           "USD": 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=USD&apikey=9N3E66AEYSMKXXHT'}
 
-crypto, currency, url = "", "", ''
+crypto, url = "", ''
 
 # ask for crypto to query
 while keep_asking:
@@ -24,37 +24,13 @@ while keep_asking:
         crypto = av_crypto[option - 1]
         keep_asking = 0
 # end ask
-
-keep_asking = 1
-
-# ask for currency to convert
-while keep_asking:
-    print("Seleccione la moneda de conversión:")
-    print("1.EUR")
-    print("2.ARS")
-    print("3.USD")
-
-    option = int(input())
-
-    if option and option <= len(av_currency):
-        currency = av_currency[option - 1]
-        keep_asking = 0
-
-# end ask
-
-print("Convertir {c} --> {m}".format(c=crypto, m=currency))
-
+print("\n..leyendo datos de la api..\n")
 # leo la api para crypto
 crypto_exchange_rate = api.get_exchange_rate(av_url[crypto])
-# leo de la api para moneda
-currency_exchange_rate = api.get_exchange_rate(av_url[currency])
+ars = api.get_exchange_rate(av_url["ARS"])
+euro = api.get_exchange_rate(av_url["EUR"])
 
-# muestro el resultado
-result = "\nPrecio criptomoneda: {str1}\nPrecio moneda: {str2}".format(str1=crypto_exchange_rate,
-                                                                       str2=currency_exchange_rate)
-print(result)
-
-subprocess.run(["./calc", crypto_exchange_rate, currency_exchange_rate])
+subprocess.run(["../calc", crypto, crypto_exchange_rate, ars, euro])
 
 
 
