@@ -29,17 +29,44 @@ Utilizando el comando “leave” restauramos el registro ebp y salimos del stac
 
 # Guia de usuario
 
+1. Para descargar el repositorio ejecutamos
+
+```bash
+git clone https://github.com/ginos1998/SDC-TP2.git
+```
+2. Compilar programa en C y assembler, abrimos una terminal en la carpeta clonada y ejecutamos
+
+```bash
+make
+```
+3. En la misma terminal que abrimos, nos movemos a la carpeta api
+``` bash
+cd api
+```
+5. Ejecutamos el programa en python
+```bash
+python3 crypto_calc.py
+```
+
+### IMPORTANTE
+
 Para python, es necesario instalar la libreria _requests_
 
-´pip install requests´
+```bash
+pip install requests
+```
 
 Para C, necesitamos el compilador _gcc_
 
+```bash
 sudo apt install build-essential
+```
 
 Para assembler necesitamos el compilador nasm
 
+```bash
 sudo apt-get install nasm
-
+```
+# Demo
 
 ![texto de prueba](/img/how_to_run_py.png)
